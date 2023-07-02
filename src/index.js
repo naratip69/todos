@@ -13,3 +13,16 @@ function pageLoad(){
     body.append(div);
 }
 
+let list = [];
+
+const ToDoList = (title,descrip,dueDate,priority)=>{
+    const proto = {
+        add(){
+            list.push(this);
+        },
+        remove(){
+            list = list.filter( e => e !== this);
+        },
+    }
+    return Object.assign(Object.create(proto),{title,descrip,dueDate,priority});
+}
