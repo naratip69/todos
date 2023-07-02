@@ -118,4 +118,7 @@ body{
 
 .des{
     grid-column: 1/3;
+    grid-row: 3/4;
+    overflow: auto;
+    width: 100%;
 }
