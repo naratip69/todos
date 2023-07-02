@@ -79,3 +79,13 @@ body{
     column-gap: 3px;
     grid-auto-flow: column;
 }
+
+.item{
+    display: grid;
+    padding: 5px;
+    background-color: rgba(100, 149, 237, .5);
+    border-radius: 10px;
+    grid-template-columns: 1fr 20px;
+    grid-template-rows: 30px 20px 1fr;
+    height: 200px;
+}
