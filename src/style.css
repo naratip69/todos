@@ -70,3 +70,12 @@ body{
     width: 40px;
     margin-right: 10px;
 }
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,300px);
+    padding: 10px;
+    margin: 10px;
+    column-gap: 3px;
+    grid-auto-flow: column;
+}
