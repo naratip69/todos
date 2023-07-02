@@ -9,7 +9,17 @@ function pageLoad(){
     header.classList.add("header");
     header.textContent = "What to do..";
 
+    const container = document.createElement("div");
+    container.classList.add("container");
+
+    const addBtn = document.createElement("button");
+    addBtn.classList.add("add");
+    addBtn.textContent = "+";
+    addBtn.addEventListener("click",createFrom);
+
     div.appendChild(header);
+    div.appendChild(container);
+    div.appendChild(addBtn);
     body.append(div);
 }
 
@@ -55,22 +65,23 @@ function createListItem(title,descrip,dueDate,priority){
 
 
     btn.addEventListener("click",(e)=>{
-        const content = document.querySelector(".content");
+        const content = document.querySelector(".container");
         item.remove();
         content.removeChild(div);
     })
 
-    return item;
+    item.add();
+
 }
 
 function update(){
-    const content = document.querySelector(".content");
+    const content = document.querySelector(".container");
     const body = document.querySelector(".content");
 
     list.sort((a,b)=>b.priority - a.priority);
 
     const newContent = document.createElement("div");
-    newContent.classList.add("content");
+    newContent.classList.add("container");
 
     list.forEach(e => {newContent.appendChild(e.div)});
 
@@ -79,6 +90,7 @@ function update(){
 }
 
 function createFrom(){
+    const content = document.querySelector(".content");
     const div = document.createElement("div");
     div.classList.add("from");
 
@@ -112,6 +124,7 @@ function createFrom(){
     input3.setAttribute("type","number");
     input3.setAttribute("min","0");
     input3.setAttribute("max","10");
+    input3.setAttribute("value","0");
     priority.appendChild(label3);
     priority.appendChild(input3);
 
@@ -125,5 +138,36 @@ function createFrom(){
     input4.setAttribute("type","date");
     date.appendChild(label4);
     date.appendChild(input4);
+
+    const button = document.createElement("div");
+    button.classList.add("from-item");
+    const btn = document.createElement("button");
+    btn.setAttribute("id","add");
+    btn.textContent = ">";
+    button.appendChild(btn);
+
+    btn.addEventListener("click",(e)=>{
+        createListItem(input1.value,input2.value,input4.value,+input3.value);
+        update();
+
+        const addBtn = document.createElement("button");
+        addBtn.classList.add("add");
+        addBtn.textContent = "+";
+        addBtn.addEventListener("click",createFrom);
+
+        content.removeChild(document.querySelector(".from"));
+        content.appendChild(addBtn);
+    })
     
+    div.appendChild(title);
+    div.appendChild(date);
+    div.appendChild(priority);
+    div.appendChild(des);
+    div.appendChild(button);
+
+    content.removeChild(content.querySelector(".add"));
+    content.appendChild(div);
+
 }
+
+pageLoad();
