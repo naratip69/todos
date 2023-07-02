@@ -49,5 +49,16 @@ body{
     display: grid;
     grid-template-columns: 125px 1fr;
     justify-items: start;
-    align-items: center;
+    align-items: start;
+}
+
+.from-item:last-child{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: end;
+}
+
+#des{
+    resize: none;
+    height: 50px;
 }
