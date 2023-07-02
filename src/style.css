@@ -11,9 +11,23 @@ body{
     border: 1px solid black;
     border-radius: 8px;
     box-shadow: 5px 5px 3px gray;
-    padding: 10px;
+    padding: 14px;
     display: grid;
-    grid-template-rows: 50px 1fr 125px;
+    grid-template-rows: 50px 1fr 180px;
     width: 600px;
     justify-items:start;
+}
+
+.add{
+    border: 0;
+    font-size: 24px;
+    color: antiquewhite;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    justify-self: end;
+    align-self: end;
+    margin: 10px;
+    cursor: pointer;
 }
